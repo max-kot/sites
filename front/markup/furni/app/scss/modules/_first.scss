@@ -1,0 +1,111 @@
+.first {
+	background-color: var(--dark-green);
+	position: relative;
+	padding: var(--header-height) 0 30px;
+	
+	&__body {
+		min-height: calc(100vh - var(--header-height) - 30px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 30px;
+
+		@media (max-width: 1024px) {
+			justify-content: flex-start;
+		}
+	}
+
+	&__content {
+		color: var(--white);
+		flex: 1 1 40%;
+
+		@media (max-width: 1024px) {
+			flex: 0 1 60%;
+			position: relative;
+			z-index: 2;
+		}
+		
+		@media (max-width: 769px) {
+			flex: 0 1 80%;
+		}
+		@media (max-width: 550px) {
+			flex: 0 1 100%;
+		}
+	}
+
+	&__title {
+		@include reset;
+		font-size: rem(54);
+		line-height: 1;
+
+		@media (max-width: 550px) {
+			font-size: rem(38);
+			line-height: 150%;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 117px;
+
+			@media (max-width: 1024px) {
+				margin-bottom: 90px;
+			}
+			@media (max-width: 550px) {
+				margin-bottom: 60px;
+			}
+		}
+	}
+
+	&__buttons-box {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+
+		@media (max-width: 550px) {
+			flex-direction: column;
+		}
+	}
+
+	&__btn {
+		@media (max-width: 550px) {
+			
+		}
+	}
+
+	&__image {
+		flex: 1 1 50%;
+		align-self: flex-end;
+		position: relative;
+		z-index: 1;
+
+		@media (max-width: 1024px) {
+			position: absolute;
+			bottom: 30px;
+			right: 0;
+			width: 70%;
+			opacity: 0.5;
+		}
+
+		@media (max-width: 769px) {
+			width: 80%;
+		}
+
+		@media (max-width: 550px) {
+			width: 100%;
+			bottom: 30%;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			top: -1%;
+			right: -15%;
+			width: 50%;
+			height: 50%;
+			background-image: url('../images/icons/dotted-gray.svg');
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-position: center;
+		}
+	}
+}

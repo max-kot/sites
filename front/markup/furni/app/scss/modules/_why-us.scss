@@ -1,0 +1,142 @@
+.why-us {
+	background-color: var(--white);
+	padding: 0px 0 140px;
+
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		gap: 30px 15px;
+		position: relative;
+
+		&::after {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			top: -20%;
+			right: 30%;
+			width: 25%;
+			height: 40%;
+			background-image: url("../images/icons/dotted-yellow.svg");
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-position: center;
+			border-radius: 20px;
+		}
+	}
+
+	&__content {
+		flex: 0 1 42%;
+		position: relative;
+		z-index: 2;
+		&::after {
+			content: "";
+			position: absolute;
+			top: 15%;
+			right: -28%;
+			width: 60%;
+			height: 40%;
+			background-color: rgba(#35736e, 0.1);
+			border-radius: 20px;
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 30px;
+		}
+	}
+
+	&__descr {
+		&:not(:last-child) {
+			margin-bottom: 90px;
+		}
+		& > * {
+			@include reset;
+
+			&:not(:last-child) {
+				margin-bottom: 15px;
+			}
+		}
+	}
+
+	&__list {
+		@include list-reset;
+
+		--gap: 40px;
+		--column: 2;
+		--width: calc((100% - var(--gap) * (var(--column) - 1)) / var(--column));
+
+		display: flex;
+		flex-wrap: wrap;
+		gap: 30px var(--gap);
+	}
+
+	&__item {
+		flex: 0 1 var(--width);
+	}
+
+	&__image {
+		flex: 0 1 45%;
+		position: relative;
+		z-index: 2;
+		height: 629px;
+		overflow: hidden;
+		border-radius: 10px;
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+}
+.why-us-item {
+	&__icon {
+		width: 55px;
+		height: 44px;
+		position: relative;
+
+		&:not(:last-child) {
+			margin-bottom: 5px;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 75%;
+			height: 90%;
+			border-radius: 50%;
+			background-color: rgba(#35736e, 0.2);
+		}
+
+		img,
+		svg,
+		source {
+			width: 33px;
+		}
+	}
+
+	&__title {
+		@include reset;
+		font-weight: 600;
+		color: var(--dark-gray);
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__descr {
+		& > * {
+			@include reset;
+
+			&:not(:last-child) {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}

@@ -1,0 +1,124 @@
+html {
+	box-sizing: border-box;
+	min-height: 100%;
+	scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+img,
+svg,
+video,
+source {
+	max-width: 100%;
+	//display: inline-block;
+}
+
+a,
+button,
+input {
+	cursor: pointer;
+}
+
+body {
+	min-height: 100vh;
+	font-family: var(--Inter);
+	font-weight: 400;
+	font-style: normal;
+	font-size: rem(14);
+	line-height: lh(24, 14);
+	background-color: var(--white);
+	color: var(--gray);
+}
+
+/*--- Grid ---*/
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	position: relative; //! чтобы absolute у дочерних элементов не создавал скролл
+}
+
+.container {
+	max-width: calc(var(--container-width) + (var(--container-padding) * 2));
+	padding: 0 var(--container-padding);
+	margin: 0 auto;
+}
+
+.main {
+	flex: 1 1 auto;
+}
+
+/*--- Utility ---*/
+.visually-hidden {
+	// делает элемент скрытым, но он по-прежнему на странице
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	width: 0px;
+	height: 0px;
+	display: block;
+	margin-left: -10000px;
+	background: transparent;
+	font-size: 0;
+}
+
+.no-scroll {
+	overflow: hidden;
+}
+
+/*--- Blocks ---*/
+.btn {
+	text-decoration: none;
+	cursor: pointer;
+	display: inline-flex;
+	font-size: rem(16);
+	font-weight: 500;
+	line-height: lh(28, 16);
+	color: var(--white);
+	background-color: var(--dark-gray);
+	padding: 9px 32px;
+	border-radius: 30px;
+	border: 2px solid transparent;
+	transition: all 0.5s;
+
+	&:hover {
+		color: var(--dark-gray);
+		border-color: var(--dark-color);
+		background: transparent;
+	}
+
+	&--accent {
+		background-color: var(--yellow);
+		color: var(--dark-gray);
+
+		&:hover {
+			color: var(--yellow);
+			border-color: var(--yellow);
+		}
+	}
+
+	&--stroke {
+		background: transparent;
+		border-color: var(--white);
+
+		&:hover {
+			background-color: var(--white);
+			color: var(--dark-gray);
+			border-color: var(--white);
+		}
+	}
+}
+
+.section-title {
+	@include reset;
+	font-weight: 600;
+	font-size: rem(34);
+	line-height: lh(41, 34);
+	color: var(--dark-gray);
+}

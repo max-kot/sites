@@ -1,0 +1,176 @@
+.header {
+	background-color: rgba(#3b5d50, 0.5);
+	//backdrop-filter: blur(5px);
+	padding: 24px 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 55;
+
+	@media (max-width: 1024px) {
+		padding: 10px 0;
+	}
+
+	&__body {
+		display: flex;
+		gap: 30px;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__logo {
+		flex-shrink: 0;
+	}
+
+	&__menu {
+	}
+}
+.logo {
+	transition: all 0.5s;
+	position: relative;
+	z-index: 2;
+	&:hover {
+		transform: scale(1.2);
+	}
+}
+.menu {
+	@media (max-width: 1024px) {
+		position: absolute;
+		top: 0;
+		padding-top: calc(var(--header-height) + 30px);
+		padding-bottom: 30px;
+		right: -100%;
+		width: 100%;
+		background-color: rgba(#3b5d50, 0.5);
+		backdrop-filter: blur(5px);
+		height: 100vh;
+		overflow: auto;
+		transition: right 0.5s;
+
+		&.active {
+			right: 0;
+		}
+	}
+	&__list {
+		@include list-reset;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 15px 40px;
+
+		@media (max-width: 1024px) {
+			flex-direction: column;
+			gap: 40px;
+		}
+	}
+
+	&__item {
+		@media (max-width: 1024px) {
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	&__link {
+		@include link-reset;
+		display: inline-block;
+		font-size: rem(16);
+		font-weight: 500;
+		color: rgba(#fff, 0.5);
+		transition: all 0.5s;
+		position: relative;
+		@media (max-width: 1024px) {
+			font-size: rem(18);
+			display: block;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: -7px;
+			left: 0;
+			width: 0;
+			height: 3px;
+			background-color: var(--yellow);
+			transition: all 0.5s;
+		}
+
+		&:hover,
+		&.active {
+			color: var(--white);
+
+			&::after {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.menu-btn {
+	flex-shrink: 0;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: var(--white);
+	cursor: pointer;
+	border: none;
+	padding: 7px;
+	position: relative;
+	z-index: 2;
+	transition: all 0.5s;
+	display: none;
+
+	@media (max-width: 1024px) {
+		display: block;
+	}
+
+	span {
+		display: block;
+		width: 100%;
+		height: 2px;
+		background-color: var(--yellow);
+		transition: all 0.5s;
+	}
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		left: 7px;
+		right: 7px;
+		height: 2px;
+		background-color: var(--yellow);
+		transition: all 0.5s;
+	}
+
+	&::before {
+		top: 15px;
+	}
+	&::after {
+		bottom: 15px;
+	}
+
+	&.active {
+		background-color: var(--yellow);
+
+		span {
+			opacity: 0;
+			background-color: var(--white);
+		}
+
+		&::before,
+		&::after {
+			background-color: var(--white);
+		}
+		&::before {
+			top: unset;
+			transform: translateY(50%) rotate(-45deg);
+			bottom: 50%;
+		}
+		&::after {
+			bottom: unset;
+			transform: translateY(-50%) rotate(45deg);
+			top: 50%;
+		}
+	}
+}
