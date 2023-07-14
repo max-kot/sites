@@ -1,0 +1,76 @@
+:root {
+	// Adaptive
+	--index: calc(1vw + 1vh);
+
+	// Colors
+	--white: #fff;
+	--black: #000;
+	--gray: #6a6a6a;
+	--dark-gray: #2f2f2f;
+	--green: #35736e;
+	--dark-green: #3b5d50;
+	--yellow: #f9bf29;
+
+	// Container
+	--container-width: 1142px;
+	--container-padding: 10px;
+
+	@media (min-width: 1921px) {
+		--container-width: calc(var(--index) * 200);
+		--container-padding: 7vw;
+	}
+
+	// Header-height
+	--header-height: 99px;
+	@media (max-width: 1024px) {
+		--header-height: 70px;
+	}
+
+	// Fonts
+	--Inter: "Inter", sans-serif;
+}
+
+// PERCENTAGE LINE-HEIGHT
+@function lh($line-height, $font-size) {
+	@return calc($line-height / $font-size * 100%);
+}
+
+// FONT-FACE MIXIN
+@mixin font-face($font-family, $file-path, $weight: 400, $style: normal) {
+	@font-face {
+		font-family: $font-family;
+		font-weight: $weight;
+		font-style: $style;
+		font-display: swap;
+		src: url("#{$file-path}.eot");
+		src: url("#{$file-path}.eot?#iefix") format("embedded-opentype"), url("#{$file-path}.woff2") format("woff2"),
+			url("#{$file-path}.woff") format("woff"), url("#{$file-path}.ttf") format("truetype");
+	}
+}
+
+// FROM PX TO REM
+@function rem($px) {
+	@return calc($px / 16) + rem;
+}
+// FROM PX TO EM
+@function em($px) {
+	@return calc($px / 16) + em;
+}
+
+@mixin list-reset {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+@mixin reset {
+	padding: 0;
+	margin: 0;
+}
+@mixin link-reset {
+	text-decoration: none;
+}
+@mixin btn-reset {
+	cursor: pointer;
+	border: none;
+	background: transparent;
+}
