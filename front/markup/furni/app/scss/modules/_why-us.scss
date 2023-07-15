@@ -1,6 +1,13 @@
 .why-us {
 	background-color: var(--white);
-	padding: 0px 0 140px;
+	padding-bottom: 140px;
+
+	@media (max-width: 1024px) {
+		padding-bottom: 100px;
+	}
+	@media (max-width: 768px) {
+		padding-bottom: 60px;
+	}
 
 	&__body {
 		display: flex;
@@ -8,19 +15,32 @@
 		gap: 30px 15px;
 		position: relative;
 
+		@media (max-width: 550px) {
+			flex-wrap: wrap;
+		}
+
 		&::after {
 			content: "";
 			position: absolute;
 			z-index: 1;
-			top: -20%;
+			top: -15%;
 			right: 30%;
 			width: 25%;
-			height: 40%;
+			height: 30%;
 			background-image: url("../images/icons/dotted-yellow.svg");
 			background-repeat: no-repeat;
 			background-size: 100%;
 			background-position: center;
 			border-radius: 20px;
+
+			@media (max-width: 1024px) {
+				top: -10%;
+				height: 25%;
+			}
+
+			@media (max-width: 550px) {
+				right: 0;
+			}
 		}
 	}
 
@@ -28,6 +48,15 @@
 		flex: 0 1 42%;
 		position: relative;
 		z-index: 2;
+
+		@media (max-width: 1024px) {
+			flex: 0 1 50%;
+		}
+
+		@media (max-width: 550px) {
+			flex: 1 1 100%;
+		}
+
 		&::after {
 			content: "";
 			position: absolute;
@@ -43,12 +72,20 @@
 	&__title {
 		&:not(:last-child) {
 			margin-bottom: 30px;
+
+			@media (max-width: 768px) {
+				margin-bottom: 15px;
+			}
 		}
 	}
 
 	&__descr {
 		&:not(:last-child) {
 			margin-bottom: 90px;
+
+			@media (max-width: 768px) {
+				margin-bottom: 30px;
+			}
 		}
 		& > * {
 			@include reset;
@@ -69,6 +106,13 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 30px var(--gap);
+
+		@media (max-width: 1024px) {
+			--gap: 30px;
+		}
+		@media (max-width: 768px) {
+			--column: 1;
+		}
 	}
 
 	&__item {
@@ -83,7 +127,20 @@
 		overflow: hidden;
 		border-radius: 10px;
 
-		img {
+		@media (max-width: 1024px) {
+			flex: 0 1 50%;
+		}
+
+		@media (max-width: 768px) {
+			height: 400px;
+		}
+
+		@media (max-width: 550px) {
+			flex: 1 1 100%;
+		}
+
+		img,
+		source {
 			position: absolute;
 			top: 0;
 			left: 0;
