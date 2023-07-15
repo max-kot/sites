@@ -1,0 +1,123 @@
+.about {
+	padding-bottom: 160px;
+
+	@media (max-width: 1024px) {
+		padding-bottom: 100px;
+	}
+
+	@media (max-width: 768px) {
+		padding-bottom: 60px;
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+		gap: 30px 15px;
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: -10%;
+			top: -10%;
+			width: 25%;
+			height: 30%;
+			background-image: url('../images/icons/dot.svg');
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-position: 0 0;
+		}
+	}
+
+	&__content {
+		flex: 0 1 42%;
+	}
+
+	&__title {
+	}
+
+	&__descr {
+	}
+
+	&__list {
+	}
+
+	&__link {
+	}
+
+	&__image-box {
+		flex: 0 1 55%;
+		position: relative;
+
+		&::after {
+			content: '';
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 5%;
+			right: 5%;
+			background-color: var(--light-gray);
+		}
+	}
+
+	&__image-big {
+		width: 416px;
+		height: 514px;
+		position: relative;
+		overflow: hidden;
+		border-radius: 10px;
+
+		img,
+		source {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__image-medium {
+		position: absolute;
+		right: 0;
+		bottom: -10%;
+		width: 300px;
+		height: 350px;
+		z-index: 2;
+		overflow: hidden;
+		border-radius: 10px;
+		img,
+		source {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__image-small {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 200px;
+		height: 200px;
+		overflow: hidden;
+		border-radius: 10px;
+
+		img,
+		source {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		
+	}
+}

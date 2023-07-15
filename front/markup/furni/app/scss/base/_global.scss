@@ -121,4 +121,8 @@ body {
 	font-size: rem(34);
 	line-height: lh(41, 34);
 	color: var(--dark-gray);
+
+	@media (max-width: 550px) {
+		font-size: rem(28);
+	}
 }
