@@ -16,31 +16,100 @@
 		gap: 30px 15px;
 		position: relative;
 
+		@media (max-width: 550px) {
+			flex-wrap: wrap;
+		}
 		&::after {
 			content: '';
 			position: absolute;
 			left: -10%;
-			top: -10%;
+			top: -12%;
 			width: 25%;
 			height: 30%;
 			background-image: url('../images/icons/dot.svg');
 			background-repeat: no-repeat;
 			background-size: 100%;
 			background-position: 0 0;
+			z-index: 1;
+
+			@media (max-width: 1024px) {
+				top: -5%;
+			}
 		}
 	}
 
 	&__content {
 		flex: 0 1 42%;
+
+		@media (max-width: 1024px) {
+			flex: 0 1 50%;
+		}
+		@media (max-width: 550px) {
+			flex: 1 1 100%;
+		}
 	}
 
 	&__title {
+		&:not(:last-child) {
+			margin-bottom: 30px;
+
+			@media (max-width: 768px) {
+				margin-bottom: 15px;
+			}
+		}
 	}
 
 	&__descr {
+		&:not(:last-child) {
+			margin-bottom: 30px;
+			@media (max-width: 768px) {
+				margin-bottom: 15px;
+			}
+		}
+		& > * {
+			@include reset;
+
+			&:not(:last-child) {
+				margin-bottom: 15px;
+			}
+		}
 	}
 
 	&__list {
+		--gap: 40px;
+		--column: 2;
+		--width: calc((100% - var(--gap) * (var(--column) - 1)) / var(--column));
+
+		@include list-reset;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 24px var(--gap);
+
+		&:not(:last-child) {
+			margin-bottom: 40px;
+		}
+
+		@media (max-width: 768px) {
+			--column: 1;
+		}
+	}
+
+	&__item {
+		flex: 0 1 var(--width);
+		padding-left: 21px;
+		position: relative;
+
+		&::before {
+			content: '';
+			display: block;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			border: 2px solid var(--dark-green);
+			position: absolute;
+			top: 7px;
+			left: 0;
+		}
 	}
 
 	&__link {
@@ -49,7 +118,7 @@
 	&__image-box {
 		flex: 0 1 55%;
 		position: relative;
-
+		z-index: 2;
 		&::after {
 			content: '';
 			width: 100px;
@@ -58,16 +127,37 @@
 			top: 5%;
 			right: 5%;
 			background-color: var(--light-gray);
+
+			@media (max-width: 1024px) {
+				width: 30%;
+				height: unset;
+				padding-bottom: 30%;
+			}
+		}
+
+		@media (max-width: 1024px) {
+			flex: 0 1 50%;
+		}
+
+		@media (max-width: 550px) {
+			flex: 1 1 100%;
 		}
 	}
 
 	&__image-big {
-		width: 416px;
+		max-width: 416px;
 		height: 514px;
 		position: relative;
 		overflow: hidden;
 		border-radius: 10px;
 
+		@media (max-width: 1024px) {
+			max-width: 80%;
+			height: unset;
+			padding-bottom: 110%;
+		}
+
+		
 		img,
 		source {
 			position: absolute;
@@ -88,6 +178,23 @@
 		z-index: 2;
 		overflow: hidden;
 		border-radius: 10px;
+
+		@media (max-width: 1024px) {
+			width: 60%;
+			height: unset;
+			padding-bottom: 80%;
+			bottom: unset;
+			top: 40%;
+		}
+		@media (max-width: 768px) {
+			top: 25%;
+		}
+
+		@media (max-width: 550px) {
+			width: 60%;
+			top: unset;
+			bottom: -5%;
+		}
 		img,
 		source {
 			position: absolute;
@@ -108,6 +215,15 @@
 		overflow: hidden;
 		border-radius: 10px;
 
+		@media (max-width: 1024px) {
+			width: 50%;
+			height: unset;
+			padding-bottom: 50%;
+		}
+
+		@media (max-width: 550px) {
+			top: -5%;
+		}
 		img,
 		source {
 			position: absolute;
