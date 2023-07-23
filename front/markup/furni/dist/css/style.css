@@ -1293,6 +1293,8 @@ body {
   -webkit-box-flex: 0;
   -ms-flex: 0 1 var(--width);
   flex: 0 1 var(--width);
+  -ms-flex-item-align: start;
+  align-self: flex-start;
 }
 
 .description-item {
@@ -1302,16 +1304,29 @@ body {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   gap: 15px 30px;
+  position: relative;
+}
+
+.description-item:hover .description-item__image img,
+.description-item:hover .description-item__image svg,
+.description-item:hover .description-item__image source {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.description-item:hover .description-item__title {
+  color: var(--yellow);
 }
 
 .description-item__image {
   -webkit-box-flex: 0;
-  -ms-flex: 0 1 25%;
-  flex: 0 1 25%;
+  -ms-flex: 0 1 110px;
+  flex: 0 1 110px;
   position: relative;
   -ms-flex-item-align: start;
   align-self: flex-start;
-  height: 58%;
+  height: 110px;
   text-align: center;
 }
 
@@ -1332,12 +1347,57 @@ body {
 .description-item__image svg,
 .description-item__image source {
   height: 100%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .description-item__content {
   -webkit-box-flex: 0;
-  -ms-flex: 0 1 65%;
-  flex: 0 1 65%;
+  -ms-flex: 0 1 57%;
+  flex: 0 1 57%;
+}
+
+.description-item__content > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.description-item__title {
+  padding: 0;
+  margin: 0;
+  font-weight: 700;
+  color: var(--black);
+  font-size: 0.875rem;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.description-item__descr > * {
+  padding: 0;
+  margin: 0;
+}
+
+.description-item__link {
+  text-decoration: none;
+  color: var(--gray);
+  font-size: 0.75rem;
+  font-weight: 700;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  display: inline-block;
+  border-width: 0;
+}
+
+.description-item__link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.description-item__link:hover {
+  color: var(--dark-gray);
 }
 
 @media (min-width: 1921px) {
@@ -1512,6 +1572,15 @@ body {
     height: unset;
     padding-bottom: 50%;
   }
+
+  .description__list {
+    --gap: 15px;
+    --column: 2;
+  }
+
+  .description-item {
+    gap: 15px;
+  }
 }
 
 @media (max-width: 769px) {
@@ -1684,5 +1753,9 @@ body {
 
   .about__image-small {
     top: -5%;
+  }
+
+  .description__list {
+    --column: 1;
   }
 }
