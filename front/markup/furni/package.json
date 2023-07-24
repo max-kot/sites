@@ -38,6 +38,7 @@
     "gulp-webp": "^4.0.1",
     "normalize.css": "^8.0.1",
     "sass": "^1.62.1",
+    "swiper": "^10.0.4",
     "webpack": "^5.82.1",
     "webpack-stream": "^7.0.0"
   }
