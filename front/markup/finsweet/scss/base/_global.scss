@@ -1,0 +1,48 @@
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+img,
+svg,
+source {
+	max-width: 100%;
+}
+
+a,
+input,
+button {
+	cursor: pointer;
+}
+
+body {
+	font-family: var(--main-font);
+	font-style: normal;
+	font-weight: 600;
+	font-size: rem(16);
+	color: var(--gray);
+	line-height: lh(28, 16);
+	background-color: var(--white);
+}
+
+.wrapper {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.main {
+	flex: 1 1 auto;
+}
+
+.container {
+	max-width: calc(var(--container-width) + (var(--container-gap) * 2));
+	padding: 0 var(--container-gap);
+	margin: 0 auto;
+}

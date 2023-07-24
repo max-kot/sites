@@ -1,0 +1,171 @@
+.testimonials {
+	padding-bottom: 40px;
+
+	&__body {
+	}
+
+	&__title {
+		text-align: center;
+
+		&:not(:last-child) {
+			margin-bottom: 50px;
+
+			@media (max-width: 768px) {
+				margin-bottom: 30px;
+			}
+		}
+	}
+
+	&__slider-box {
+		position: relative;
+	}
+
+	&__slider {
+	}
+}
+.testimonials-slider {
+	max-width: 760px;
+	&__wrapper {
+		@include list-reset;
+	}
+
+	&__slide {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__pagination {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 40px;
+		@media (max-width: 768px) {
+			margin-top: 20px;
+		}
+		span {
+			width: 7px;
+			height: 7px;
+			background-color: var(--light-gray);
+
+			&.swiper-pagination-bullet-active {
+				background-color: var(--dark-green);
+			}
+		}
+	}
+
+	&__btn {
+		position: absolute;
+		z-index: 2;
+		bottom: 50%;
+		transform: translateY(-50%);
+		width: 58px;
+		height: 58px;
+		border: none;
+		border-radius: 50%;
+		background-color: rgba(#c4c4c4, 0.1);
+		padding: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: all 0.5s;
+
+		@media (max-width: 1024px) {
+			bottom: 18%;
+			transform: none;
+		}
+
+		svg,
+		img,
+		source {
+			max-width: 100%;
+			height: 100%;
+			transition: all 0.5s;
+		}
+
+		&:hover {
+			background-color: var(--dark-green);
+
+			svg {
+				fill: var(--white);
+			}
+		}
+	}
+
+	&__btn-prev {
+		left: 15px;
+		@media (max-width: 1024px) {
+			left: 0;
+		}
+	}
+
+	&__btn-next {
+		right: 15px;
+		@media (max-width: 1024px) {
+			right: 0;
+		}
+	}
+}
+.testimonials-slide {
+	&__descr {
+		text-align: center;
+		color: var(--black);
+		font-size: rem(18);
+
+		&:not(:last-child) {
+			margin-bottom: 40px;
+
+			@media (max-width: 768px) {
+				margin-bottom: 20px;
+			}
+		}
+		@media (max-width: 768px) {
+			font-size: rem(16);
+		}
+
+		& > * {
+			@include reset;
+
+			& > *:not(:last-child) {
+				margin-bottom: 15px;
+			}
+		}
+	}
+
+	&__meta {
+		max-width: 180px;
+		text-align: center;
+	}
+}
+.slide-meta {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	&__image {
+		width: 77px;
+		height: 77px;
+		overflow: hidden;
+		border-radius: 50%;
+
+		&:not(:last-child) {
+			margin-bottom: 18px;
+		}
+	}
+
+	&__name {
+		@include reset;
+		color: var(--black);
+		font-size: rem(18);
+
+		&:not(:last-child) {
+			margin-bottom: 4px;
+		}
+	}
+
+	&__position {
+		@include reset;
+	}
+}
