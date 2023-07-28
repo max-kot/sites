@@ -8,6 +8,11 @@ html {
 	box-sizing: border-box;
 }
 
+html,
+body {
+	min-height: 100vh;
+}
+
 img,
 svg,
 source {
@@ -18,6 +23,7 @@ a,
 input,
 button {
 	cursor: pointer;
+	font: inherit;
 }
 
 body {
@@ -35,6 +41,7 @@ body {
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
+	min-height: 100%;
 }
 
 .main {
@@ -57,7 +64,7 @@ body {
 	border-radius: 12px;
 	font-size: rem(18);
 	transition: all 0.5s;
-	border: 2px solid transparent;
+	border: 3px solid transparent;
 
 	&:hover {
 		border-color: var(--orange);

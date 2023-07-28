@@ -10,7 +10,7 @@
 	}
 
 	&__content {
-		flex: 0 1 50%;
+		flex: 0 1 48%;
 	}
 
 	&__title {
@@ -48,6 +48,8 @@
 		gap: 8px;
 		font-weight: 700;
 		transition: all 0.5s;
+		text-decoration: none;
+		color: var(--black);
 
 		svg {
 			width: 24px;
@@ -97,7 +99,7 @@
 	}
 
 	&__image {
-		flex: 0 1 50%;
+		flex: 0 1 45%;
 		min-height: 632px;
 		position: relative;
 	}
@@ -128,7 +130,7 @@
 	position: absolute;
 	bottom: 70px;
 	right: -20px;
-	padding: 15px 32px;
+	padding: 24px 32px;
 
 	background-color: var(--white);
 	border-radius: 59px;
@@ -169,6 +171,15 @@
 	}
 
 	&__rating {
+		display: flex;
+		flex-direction: column;
+		line-height: 1;
+		align-items: center;
+
+		span:first-child {
+			font-size: rem(24);
+			color: var(--black);
+		}
 	}
 
 	&__image {
