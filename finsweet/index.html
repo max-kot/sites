@@ -5,7 +5,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{finsweet</title>
-		<link href="./css/style.css" rel="stylesheet">
+
+	<link href="./libs/normalize.css" rel="stylesheet">
+	<link href="./libs/fancybox/fancybox.css" rel="stylesheet">
+	<link href="./css/style.css" rel="stylesheet">
+
+	<!-- ! defer для скриптов ОБЯЗАТЕЛЕН -->
+	<script src="./libs/fancybox/fancybox.umd.js" defer></script>
+	<script src="./js/main.js" defer></script>
 </head>
 
 <body>
@@ -54,12 +61,12 @@
 							</h1>
 							<div class="first__btn-box">
 								<a class="first__btn btn" href="#">Book a service</a>
-								<button class="first__btn-video" type="button">
+								<a class="first__btn-video" href="https://www.youtube.com/watch?v=jfKfPfyJRdk" data-fancybox>
 									<svg>
 										<use xlink:href='./images/sprite.svg#video-play'></use>
 									</svg>
 									<span>Play Video</span>
-								</button>
+								</a>
 							</div>
 							<div class="first__info">
 								<span class="first__info-text">
@@ -76,7 +83,7 @@
 							</div>
 							<div class="first__popup-box popup-box">
 								<span class="popup-box__icon">
-									24 hr
+									<span>24</span> hr
 								</span>
 								<span class="popup-box__text">
 									Quick service
@@ -84,7 +91,7 @@
 							</div>
 							<div class="first__popup-box popup-box">
 								<div class="popup-box__rating">
-									<span>4.5/5</span> <span>Rating</span> 
+									<span>4.5/5</span> <span>Rating</span>
 								</div>
 								<div class="popup-box__image">
 									<img src="./images/icons/rating.svg" alt="Rating stars">
@@ -96,6 +103,8 @@
 			</section>
 		</main>
 	</div>
+
+	
 </body>
 
 </html>
