@@ -5,6 +5,7 @@
 	// Colors
 	--white: #fff;
 	--dark-white: #c4c4c4;
+	--gray-bg: #eff2f1;
 	--black: #000;
 	--gray: #6a6a6a;
 	--dark-gray: #2f2f2f;
@@ -56,6 +57,11 @@
 // FROM PX TO EM
 @function em($px) {
 	@return calc($px / 16) + em;
+}
+
+
+@function imgpb($width, $height) {
+	@return calc($height / $width * 100%);
 }
 
 @mixin list-reset {
