@@ -1,0 +1,229 @@
+.footer {
+	background-color: var(--white);
+	padding-bottom: 100px;
+	
+	@media (max-width: 768px) {
+		padding-bottom: 60px;
+	}
+	&__body {
+	}
+
+	&__top {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 30px;
+
+		&:not(:last-child) {
+			margin-bottom: 30px;
+		}
+	}
+
+	&__info {
+		flex: 0 1 35%;
+
+		@media (max-width: 550px) {
+			flex: 1 1 100%;
+		}
+	}
+
+	&__logo {
+		display: inline-block;
+		transition: all 0.5s;
+
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+
+	&__descr {
+		&:not(:last-child) {
+			margin-bottom: 60px;
+		}
+		& > * {
+			@include reset;
+
+			&:not(:last-child) {
+				margin-bottom: 15px;
+			}
+		}
+	}
+
+	&__social-list {
+	}
+
+	&__nav {
+		--gap: 50px;
+		--column: 4;
+		--width: calc((100% - var(--gap) * (var(--column) - 1)) / var(--column));
+
+		display: flex;
+		flex-wrap: wrap;
+		gap: 15px var(--gap);
+
+		flex: 0 1 50%;
+		
+
+		@media (max-width: 1024px) {
+			--column: 3;
+		}
+
+		@media (max-width: 768px) {
+			--column: 2;
+		}
+
+		@media (max-width: 550px) {
+			--gap: 15px;
+			flex: 1 1 100%;
+		}
+	}
+
+	&__menu {
+		flex: 0 1 var(--width);
+	}
+
+	&__bottom {
+		padding-top: 30px;
+		border-top: 1px solid var(--light-gray);
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 15px 30px;
+		justify-content: space-between;
+
+		@media (max-width: 768px) {
+			flex-direction: column;
+			align-items: flex-start;
+
+		}
+	}
+
+	&__copyright {
+		font-size: rem(12);
+
+		a {
+			text-decoration: none;
+			color: var(--dark-gray);
+			font-weight: 600;
+			transition: all 0.5s;
+
+			&:hover {
+				color: var(--yellow);
+			}
+		}
+
+		@media (max-width: 768px) {
+			order: 2;
+		}
+	}
+
+	&__link-box {
+		margin-left: auto;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 15px 30px;
+
+		@media (max-width: 768px) {
+			order: 1;
+			margin-left: unset;
+		}
+	}
+
+	&__link {
+		text-decoration: none;
+		color: inherit;
+
+	}
+
+	&__design-logo {
+		@media (max-width: 768px) {
+			order: 3;
+		}
+
+		svg * {
+			transition: all 0.3s;
+		}
+
+		svg path {
+			fill: var(--black);
+
+		}
+		svg line {
+			stroke: var(--black);
+			
+		}
+		svg rect {
+			stroke: var(--black);
+		}
+
+		&:hover {
+			svg path {
+				fill: var(--yellow);
+
+			}
+			svg line {
+				stroke: var(--yellow);
+				
+			}
+			svg rect {
+				stroke: var(--yellow);
+			}
+		}
+	}
+}
+.social-list {
+	@include list-reset;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+
+	&__item {
+	}
+
+	&__link {
+		display: inline-block;
+		width: 41px;
+		height: 41px;
+		padding: 10px;
+		border-radius: 50%;
+		background-color: var(--light-gray);
+		transition: all 0.5s;
+
+		svg {
+			max-width: 100%;
+			height: 100%;
+			transition: all 0.3s;
+		}
+
+		&:hover {
+			background-color: var(--yellow);
+
+			svg {
+				fill: var(--white);
+			}
+		}
+	}
+}
+.footer-menu {
+	@include list-reset;
+
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: 5px;
+		}
+	}
+
+	&__link {
+		text-decoration: none;
+		color: inherit;
+		transition: all 0.5s;
+
+		&:hover {
+			color: var(--yellow);
+		}
+	}
+}
