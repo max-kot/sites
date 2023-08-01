@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-	@@include('./includes/_head.html', {
-		'title': 'Furni.'
-	})
+@@include('./includes/_head.html', {
+'title': 'Furni.'
+})
+
 <body>
+	<div class="loader">
+		<p class="loader__title">Furni.</p>
+		<div class="loader__item"></div>
+		<div class="loader__item"></div>
+		<div class="loader__item"></div>
+	</div>
 	<div class="wrapper">
 		@@include('./includes/_header.html')
 		<main class="main">
@@ -20,4 +27,5 @@
 	</div>
 	@@include('./includes/_script.html')
 </body>
+
 </html>
