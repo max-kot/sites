@@ -1,16 +1,28 @@
 .header {
 	padding: 18px 0;
 	background-color: var(--white);
-	
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 55; //! общепринятое значение
+	box-shadow: 0 0 5px 0px rgba(#000, 0.2);
+
 	&__body {
 		display: flex;
 		gap: 15px 32px;
 		align-items: center;
+
+		@media (max-width: 1024px) {
+			justify-content: space-between;
+		}
 	}
 
 	&__logo {
 		//! чтобы лого не сжимался на мобиле
-		//! flex-shrink: 0;
+		flex-shrink: 0;
+		position: relative;
+		z-index: 2;
 	}
 
 	&__menu {
@@ -22,17 +34,30 @@
 		flex-direction: column;
 		padding-left: 86px; // ширина иконки + отступы справа и слева от неё
 		position: relative;
-		width: 286px; //! на глаз, чтобы контент не растягивался и не сжимался
+		flex-shrink: 0;
 
 		&::before {
 			// полосочка
-			content: '';
+			content: "";
 			position: absolute;
 			top: 6px; // чтобы уменьшить по длине полоску
 			bottom: 6px; // чтобы уменьшить по длине полоску
 			left: 0;
 			width: 1px;
 			background-color: var(--gray);
+
+			@media (max-width: 1024px) {
+				display: none;
+			}
+		}
+
+		@media (max-width: 1024px) {
+			border-bottom: 1px solid var(--light-gray);
+			width: 100%;
+			align-items: center;
+			padding-left: 0;
+			padding-bottom: 15px;
+			margin-bottom: 15px;
 		}
 	}
 
@@ -48,7 +73,7 @@
 
 		&::before {
 			// иконка
-			content: '';
+			content: "";
 			position: absolute;
 			left: 32px; // от полоски до иконки
 			top: 50%;
@@ -56,11 +81,15 @@
 			width: 40px;
 			height: 40px;
 			border-radius: 50%;
-			background: var(--green) url('../images/icons/phone.svg');
+			background: var(--green) url("../images/icons/phone.svg");
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: 20px;
 			transition: all 0.5s;
+
+			@media (max-width: 1024px) {
+				display: none;
+			}
 		}
 
 		&:hover {
@@ -80,6 +109,26 @@
 	}
 }
 .menu {
+	@media (max-width: 1024px) {
+		position: absolute;
+		top: calc(var(--header-height) + 5px); // высота + тень
+		right: -100%;
+		width: 100%;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		height: calc(100vh - var(--header-height) - 5px); // 100vh - высота хэдера - тень
+		overflow: auto;
+		background-color: var(--white);
+		transition: right 0.5s;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		&.active {
+			right: 0;
+		}
+	}
+
 	&__list {
 		margin: 0;
 		padding: 0;
@@ -87,6 +136,12 @@
 		display: flex;
 		gap: 10px 40px;
 		flex-wrap: wrap; //! при большом кол-ве пунктов меню будет ломаться красиво
+		width: 100%;
+
+		@media (max-width: 1024px) {
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 
 	&__item {
@@ -97,6 +152,10 @@
 		color: var(--black);
 		transition: all 0.5s;
 		position: relative;
+
+		@media (max-width: 1024px) {
+			font-size: rem(18);
+		}
 
 		&::after {
 			content: "";
@@ -116,6 +175,67 @@
 				left: 0; //! чтобы полоса выезжала из центра
 				right: 0; //! чтобы полоса выезжала из центра
 			}
+		}
+	}
+}
+
+.menu-btn {
+	display: none;
+	position: relative;
+	z-index: 2;
+	width: 45px;
+	height: 30px;
+	border: none;
+	background: transparent;
+
+	@media (max-width: 1024px) {
+		display: block;
+	}
+
+	span {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		width: 100%;
+		background-color: var(--black);
+		height: 2px;
+		transition: all 0.3s;
+	}
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		width: 100%;
+		background-color: var(--black);
+		height: 2px;
+		transition: all 0.5s;
+	}
+
+	&::before {
+		top: 0;
+	}
+
+	&::after {
+		bottom: 0;
+	}
+
+	&.active {
+		span {
+			opacity: 0;
+		}
+
+		&::before {
+			top: 50%;
+			transform: translateY(-50%) rotate(-45deg);
+		}
+
+		&::after {
+			bottom: unset;
+			top: 50%;
+			transform: translateY(-50%) rotate(45deg);
 		}
 	}
 }
