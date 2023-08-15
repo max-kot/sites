@@ -1,6 +1,15 @@
+/*
+	transition: 0.3s;
+
+	ОТСТУПЫ 
+	-- 1024px 
+	128 = 90 = 60
+*/
+
 @import './base/_vars.scss';
 @import './base/_fonts.scss';
 @import './base/_global.scss';
 
 @import './modules/_header.scss';
 @import './modules/_first.scss';
+@import './modules/_offer.scss';

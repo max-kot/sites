@@ -5,11 +5,13 @@ Fancybox.bind("[data-fancybox]", {
 const menu = document.querySelector('.menu');
 const menuBtn = document.querySelector('.menu-btn');
 const menuLinks = document.querySelectorAll('.menu a'); // все ссылки что находятся в классе .menu
+const header = document.querySelector('.header');
 
 menuBtn.addEventListener('click', function () {
 	menu.classList.toggle('active');
 	menuBtn.classList.toggle('active');
 	document.body.classList.toggle('no-scroll');
+	header.classList.toggle('active');
 })
 
 for (let i = 0; i < menuLinks.length; i++) {
@@ -19,6 +21,7 @@ for (let i = 0; i < menuLinks.length; i++) {
 		menu.classList.remove('active');
 		menuBtn.classList.remove('active');
 		document.body.classList.remove('no-scroll');
+		header.classList.remove('active');
 	})
 }
 
@@ -42,11 +45,7 @@ moveElement(screen);
 screen.addListener(moveElement);
 
 
-
-
-
 // автовычисление высоты шапки
-const header = document.querySelector('.header');
 const headerHeight = header.offsetHeight;
 const root = document.querySelector(':root'); // корневое хранилище переменных
 // меняем переменную === название переменной, значение

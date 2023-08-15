@@ -7,6 +7,25 @@
 	width: 100%;
 	z-index: 55; //! общепринятое значение
 	box-shadow: 0 0 5px 0px rgba(#000, 0.2);
+	
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: -100%;
+		width: 100%;
+		background-color: var(--white);
+		box-shadow: 0 0 5px 0 rgba(#000, 0.2);
+		z-index: 1;
+		transition: right 0.5s;
+	}
+
+	&.active {
+		&::before {
+			right: 0;
+		}
+	}
 
 	&__body {
 		display: flex;
@@ -23,6 +42,11 @@
 		flex-shrink: 0;
 		position: relative;
 		z-index: 2;
+
+		img,
+		source {
+			display:block;
+		}
 	}
 
 	&__menu {
@@ -111,12 +135,12 @@
 .menu {
 	@media (max-width: 1024px) {
 		position: absolute;
-		top: calc(var(--header-height) + 5px); // высота + тень
+		top: 0;
 		right: -100%;
 		width: 100%;
-		padding-top: 30px;
+		padding-top: calc(var(--header-height) + 30px);
 		padding-bottom: 30px;
-		height: calc(100vh - var(--header-height) - 5px); // 100vh - высота хэдера - тень
+		height: 100vh;
 		overflow: auto;
 		background-color: var(--white);
 		transition: right 0.5s;

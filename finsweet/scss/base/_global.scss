@@ -76,3 +76,18 @@ body {
 		color: var(--orange);
 	}
 }
+
+.section-title {
+	color: var(--black);
+	font-weight: 800;
+	font-size: rem(58);
+	line-height: lh(76, 58);
+
+	@media (max-width: 768px) {
+		font-size: rem(42);
+	}
+	
+	@media (max-width: 550px) {
+		font-size: rem(28);
+	}
+}
