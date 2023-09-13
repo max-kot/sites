@@ -75,9 +75,23 @@ body {
 		background: transparent;
 		color: var(--orange);
 	}
+
+
+	&--black {
+		background-color: var(--black);
+		color: var(--white);
+
+		&:hover {
+			border-color: var(--black);
+			background: transparent;
+			color: var(--black);
+		}
+	}
 }
 
 .section-title {
+	@extend %reset;
+	
 	color: var(--black);
 	font-weight: 800;
 	font-size: rem(58);

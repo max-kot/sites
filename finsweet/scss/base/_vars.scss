@@ -2,12 +2,14 @@
 	// colors
 	--gray: #787676;
 	--light-gray: #939191;
+	--bg-light-gray: #e2e6e9;
 	--bg-gray: #f2f2f2;
 	--white: #fff;
 	--black: #1e1b1b;
 	--orange: #ff6433;
 	--green: #61c3a1;
 	--green2: #5cba99;
+	--purple: #661ce7;
 
 	// sizes
 	--container-width: 1280px;
@@ -26,6 +28,14 @@
 	@return calc(($line-height / $font-size) * 100%);
 }
 
-//@function flexWidth($column, $gap) {
-//	@return calc(100% - ($gap * ($column - 1)) / $column);
-//}
+// EXTENDS
+%reset {
+	margin: 0;
+	padding: 0;
+}
+
+%flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
