@@ -1,6 +1,7 @@
 .experience {
 	padding: 48px 0;
 	background-color: var(--bg-gray);
+	
 	&__list {
 		@extend %reset;
 		list-style-type: none;

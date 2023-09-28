@@ -1,5 +1,5 @@
 .brands {
-	padding: 128px 0 82px;
+	padding: 128px 0;
 	background-color: var(--bg-light-gray);
 
 	@media (max-width: 1024px) {
@@ -53,7 +53,7 @@
 	}
 
 	&__link {
-		display: inline-block;
+		display: block;
 		opacity: 0.6;
 		transition: all 0.3s;
 
