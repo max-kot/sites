@@ -55,6 +55,11 @@ body {
 }
 
 //* COMPONENTS
+
+.no-scroll {
+	overflow: hidden;
+}
+
 .btn {
 	text-decoration: none;
 	color: var(--white);
@@ -70,5 +75,34 @@ body {
 		border-color: var(--orange);
 		background: transparent;
 		color: var(--orange);
+	}
+
+
+	&--black {
+		background-color: var(--black);
+		color: var(--white);
+
+		&:hover {
+			border-color: var(--black);
+			background: transparent;
+			color: var(--black);
+		}
+	}
+}
+
+.section-title {
+	@extend %reset;
+	
+	color: var(--black);
+	font-weight: 800;
+	font-size: rem(58);
+	line-height: lh(76, 58);
+
+	@media (max-width: 768px) {
+		font-size: rem(42);
+	}
+	
+	@media (max-width: 550px) {
+		font-size: rem(28);
 	}
 }

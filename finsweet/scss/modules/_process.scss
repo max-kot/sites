@@ -1,0 +1,186 @@
+.process {
+	padding: 135px 0;
+	background-color: var(--white);
+
+	@media (max-width: 1024px) {
+		padding: 90px 0;
+	}
+
+	@media (max-width: 768px) {
+		padding: 60px 0;
+	}
+
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		gap: 30px;
+		width: 90%;
+
+		@media (max-width: 1024px) {
+			width: 100%;
+		}
+		
+		@media (max-width: 768px) {
+			flex-direction: column;
+		}
+	}
+
+	&__info {
+		flex: 0 1 50%;
+	}
+
+	&__title {
+		@extend %reset;
+
+		&:not(:last-child) {
+			margin-bottom: 16px;
+		}
+	}
+
+	&__text {
+		@extend %reset;
+
+		max-width: 435px;
+
+		@media (max-width: 768px) {
+			max-width: 100%;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 32px;
+		}
+		
+	}
+
+	&__link {
+		@media (max-width: 550px) {
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	&__list {
+		@extend %reset;
+		list-style-type: none;
+
+		flex: 0 1 39%;
+
+		//! счётчик
+		counter-reset: myCounter;
+
+		@media (max-width: 1024px) {
+			flex: 0 1 50%;
+		}
+	}
+
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: 16px;
+		}
+	}
+}
+
+.process-item {
+	position: relative;
+	padding-left: 96px;
+	padding-top: 13px;
+
+	@media (max-width: 550px) {
+		padding-left: 68px;
+		padding-top: 8px;
+	}
+
+	&::before {
+		//! для всех item добавляем 0 в начале
+		counter-increment: myCounter;
+		content: "0" counter(myCounter);
+
+		@extend %flex-center;
+		
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 72px;
+		height: 72px;
+		background: url('../images/icons/circle-decor.png') var(--purple);
+		//*
+		background-position: bottom;
+		background-repeat: no-repeat;
+		background-size: 100%;
+		//*
+		border-radius: 50%;
+
+		color: var(--white);
+		font-weight: 700;
+		font-size: rem(32);
+
+		@media (max-width: 550px) {
+			width: 52px;
+			height:  52px;
+
+			font-size: rem(24);
+		}
+	}
+
+	&:nth-child(n + 10) {
+		&::before {
+			//! для всех item после 9 пишем без нуля
+			counter-increment: myCounter;
+			content: counter(myCounter);
+		}
+	}
+
+	&::after {
+		// полосочка
+		content: '';
+		position: absolute;
+		left: 35px;
+		bottom: 12px;
+		display: block;
+		height: calc(100% - 72px - 16px - 12px); // высота кружка - растояние от кружка до полоски - bottom
+		border: 1px dashed var(--orange);
+
+		@media (max-width: 550px) {
+			left: 25px;
+			height: calc(100% - 52px - 16px - 12px);
+		}
+	}
+
+	&:last-child {
+		&::after {
+			display: none;
+		}
+	}
+	
+	&__title {
+		@extend %reset;
+
+		font-weight: 700;
+		font-size: rem(32);
+		line-height: lh(48, 32);
+		color: var(--black);
+
+		@media (max-width: 550px) {
+			font-size: rem(24);
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 8px;
+		}
+	}
+
+	&__text {
+		@extend %reset;
+
+		max-width: 336px;
+		font-size: rem(18);
+
+		@media (max-width: 768px) {
+			max-width: 100%;
+		}
+
+		@media (max-width: 550px) {
+			font-size: rem(16);
+		}
+	}
+}

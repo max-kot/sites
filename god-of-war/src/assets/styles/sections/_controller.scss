@@ -1,0 +1,122 @@
+.controller {
+	padding-top: 5rem;
+	background-color: var(--dark);
+	overflow: hidden;
+
+	&__body {
+		padding: 0 8rem;
+
+		@media (max-width: em(1000)) {
+			padding: unset;
+		}
+	}
+
+	&__title {
+	}
+
+	&__info-box {
+		align-items: center;
+		flex-wrap: wrap-reverse;
+		justify-content: space-between;
+		gap: 1.5rem;
+		align-content: start;
+
+		@media (max-width: em(600)) {
+			* {
+				flex: 1 1 100% !important;
+			}
+		}
+	}
+
+	&__content {
+		flex: 0 1 48%;
+		transition: all 0.8s;
+
+		&.animation {
+			transform: translateX(0);
+			opacity: 1;
+		}
+
+		&.hide {
+			transform: translateX(-100%);
+			opacity: 0;
+		}
+	}
+
+	&__descr {
+		font-size: 1.8rem;
+		line-height: 140%;
+		color: var(--blue-gray);
+
+		&:not(:last-child) {
+			margin-bottom: 3rem;
+		}
+
+		& > * {
+			@extend %reset;
+
+			&:not(:last-child) {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+
+	&__price-box {
+		justify-content: space-between;
+		align-items: center;
+		gap: 1.6rem;
+		flex-wrap: wrap;
+	}
+
+	&__price {
+		line-height: 110%;
+		font-size: 3rem;
+		font-weight: 700;
+	}
+
+	&__btn {
+	}
+
+	&__image-box {
+		flex: 0 1 35%;
+		position: relative;
+		transition: all 0.8s;
+		text-align: center;
+		
+		@media (max-width: em(800)) {
+			flex: 0 1 45%;
+		}
+
+		&.animation {
+			transform: translateX(0);
+			opacity: 1;
+		}
+
+		&.hide {
+			transform: translateX(100%);
+			opacity: 0;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			top: -10%;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: radial-gradient(rgb(79, 96, 152) 5%, transparent 72%);
+			opacity: 0.5;
+		}
+
+		img,
+		source {
+			position: relative;
+			z-index: 2;
+			animation: gravity 1.3s ease-in-out infinite alternate-reverse;
+			
+			@media (max-width: em(600)) {
+				
+			}
+		}
+	}
+}
