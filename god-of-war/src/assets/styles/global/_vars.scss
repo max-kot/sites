@@ -1,0 +1,38 @@
+:root {
+	//* COLORS *//
+	--dark: #1c2023;
+	--light: #fff;
+	--dark-gray: #30373f;
+	--violet: #8856d9;
+	--gray: #8c96a0;
+	--blue-gray: #a9c7c7;
+	--orange: #ff4136;
+	--dark-gradient: linear-gradient(180deg, #141615, #1c2023);
+	--dark-gradient-opacity: linear-gradient(180deg, rgba(20, 22, 21, 0.5), rgba(28, 32, 35, 0.9));
+	--gray-gradient: linear-gradient(180deg, #30373f, #141615);
+	--gray-gradient-opacity: linear-gradient(360deg, rgba(28, 32, 35, 0.7), transparent);
+
+	//* SIZES *//
+	--header-height: 14rem;
+	--convert-unit: 10;
+	--font-size-to-rem: calc(100% * var(--convert-unit) / 16);
+}
+
+$white: #fff;
+
+%reset {
+	margin: 0;
+	padding: 0;
+}
+
+%btn-reset {
+	@extend %reset;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	font: inherit;
+}
+
+@function em($px) {
+	@return calc($px / 16 * 1em);
+}
