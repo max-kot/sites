@@ -1,0 +1,1 @@
+const allLinks=document.querySelectorAll("a[href]");allLinks.forEach((e=>{e.addEventListener("click",(e=>{e.preventDefault();const t=e.currentTarget.getAttribute("href");if(!t&&!t.startWidth("#"))return;const r=t.slice(1),o=document.querySelector(`#${r}`)?.offsetTop||0;window.scrollTo({top:o,behavior:"smooth"})}))}));
