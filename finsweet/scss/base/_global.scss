@@ -19,9 +19,14 @@ source {
 	max-width: 100%;
 }
 
+
+
 a,
 input,
-button {
+button,
+textarea,
+select,
+option {
 	cursor: pointer;
 	font: inherit;
 }
@@ -52,6 +57,10 @@ body {
 	max-width: calc(var(--container-width) + (var(--container-gap) * 2));
 	padding: 0 var(--container-gap);
 	margin: 0 auto;
+
+	&--small {
+		--container-width: 896px;
+	}
 }
 
 //* COMPONENTS

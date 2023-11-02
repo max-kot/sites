@@ -143,3 +143,110 @@ const testimonialsSlider = new Swiper('.testimonials-slider', {
 	}
 })
 
+
+//* SPOILER *//
+const allSpoilerEl = document.querySelectorAll('.spoiler');
+
+allSpoilerEl.forEach((spoiler) => {
+	let title = spoiler.querySelector('.spoiler__title'); // spoiler.children[0]
+	let content = spoiler.querySelector('.spoiler__content'); // spoiler.children[1]
+	let contentHeight = content.scrollHeight;
+
+	if (spoiler.classList.contains('active')) {
+		content.style.height = `${contentHeight}px`;
+	} else {
+		content.style.height = 0;
+	}
+
+	title.addEventListener('click', () => {
+		if (spoiler.classList.contains('active')) {
+			spoiler.classList.remove('active');
+			content.style.height = 0;
+		} else {
+			spoiler.classList.add('active');
+			content.style.height = `${contentHeight}px`;
+		}
+	})
+})
+
+//! Ещё один способ
+/*
+for (let i = 0; i < allSpoilerEl.length; i++) {
+	let spoiler = allSpoilerEl[i];
+	let title = spoiler.querySelector('.spoiler__title');
+	let content = spoiler.querySelector('.spoiler__content');
+	let contentHeight = content.scrollHeight;
+
+	if (spoiler.classList.contains('active')) {
+		content.style.height = `${contentHeight}px`;
+	} else {
+		content.style.height = 0;
+	}
+
+	title.addEventListener('click', () => {
+		if (spoiler.classList.contains('active')) {
+			spoiler.classList.remove('active');
+			content.style.height = 0;
+		} else {
+			spoiler.classList.add('active');
+			content.style.height = `${contentHeight}px`;
+		}
+	})
+}
+*/
+
+//! КАТИНА ВЕРСИЯ !//
+/*
+const allSpoilerEl = document.querySelectorAll('.spoiler');
+const allSpoilerTitleEl = document.querySelectorAll('.spoiler__title');
+const allSpoilerContentEl = document.querySelectorAll('.spoiler__content');
+
+allSpoilerContentEl.forEach((content) => {
+	//content.style.height = 0;
+	content.style.display = 'none';
+})
+allSpoilerTitleEl.forEach((title) => {
+	title.addEventListener('click', () => {
+		const content = title.nextElementSibling;
+
+		if (content.style.display === 'none') {
+			content.style.display = 'block';
+		} else {
+			content.style.display = 'none';
+		}
+	})
+})
+*/
+
+//* CUSTOM SELECT *//
+const select = document.querySelector('[data-select]');
+const selectInput = document.querySelector('[data-select-input]');
+const selectList = document.querySelector('[data-select-list]');
+const allSelectItem = document.querySelectorAll('[data-select-list] li');
+
+
+selectInput.setAttribute('readonly', "")
+// при нажатии переключает класс active === список выпадает и стрелочка переворачивается
+selectInput.addEventListener('click', () => {
+	selectList.classList.toggle('active');
+	select.classList.toggle('active');
+})
+
+// 
+allSelectItem.forEach((item) => {
+	item.addEventListener('click', () => {
+		allSelectItem.forEach((item) => {
+			item.classList.remove('active');
+		})
+		item.classList.add('active');
+		selectList.classList.remove('active');
+		select.classList.remove('active');
+		selectInput.value = item.getAttribute('data-select-value');
+	})
+})
+
+
+//* АВТОВЫЧИСЛЕНИЕ ВЫСОТЫ ИНПУТА *//
+const selectInputHeight = selectInput.offsetHeight;
+// меняем переменную === название переменной, значение
+root.style.setProperty('--input-height', `${selectInputHeight}px`);
