@@ -6,6 +6,7 @@
 
 html {
 	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 html,
@@ -18,8 +19,6 @@ svg,
 source {
 	max-width: 100%;
 }
-
-
 
 a,
 input,
